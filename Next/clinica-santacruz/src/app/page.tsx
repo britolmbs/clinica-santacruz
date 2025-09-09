@@ -1,9 +1,15 @@
 import { FeatureCard } from "@/components/FeatureCard";
 import { Button } from "@/components/ui/button";
 import { CalendarClock, Heart, Hospital, SquareActivity, Zap } from "lucide-react";
+import { signIn } from "@/lib/auth";
 
 
 export default function Home() {
+
+  async function handleSubmit() {
+    "use server"
+    await signIn('Credentials', { redirectTo: '/dashboard' })
+  }
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-gray-50">
       <header className="container mx-auto py-6 px-4">
@@ -24,7 +30,7 @@ export default function Home() {
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-950 to-indigo-800">Rapido e Facil de forma Descoplicada</h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">Verifique o Agendamento e Dashboard em uma pagina personalizada e elegante, sem complicações</p>            
             <div className="pt-4">
-              <form action=''>
+              <form action={handleSubmit}>
             <Button type="submit"
             size='lg'
             className="bg-indigo-950 hover:bg-indigo-800 text-white font-medium px-8 h-12"
