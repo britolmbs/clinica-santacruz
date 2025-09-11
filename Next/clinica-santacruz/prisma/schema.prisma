@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agendamento {
+  id           Int               @id @default(autoincrement())
+  dataHora     DateTime
+  pacienteId   Int
+  medicoId     Int
+  atualizadoEm DateTime
+  criadoEm     DateTime          @default(now())
+  observacao   String?
+  status       StatusAgendamento @default(agendado)
+  Medico       Medico            @relation(fields: [medicoId], references: [id])
+  Paciente     Paciente          @relation(fields: [pacienteId], references: [id])
+
+  @@index([medicoId, dataHora])
+}
+
+model Medico {
+  id            Int           @id @default(autoincrement())
+  nome          String
+  especialidade String
+  telefone      String
+  atualizadoEm  DateTime
+  criadoEm      DateTime      @default(now())
+  Agendamento   Agendamento[]
+}
+
+model Paciente {
+  id             Int           @id @default(autoincrement())
+  nome           String
+  dataNascimento DateTime
+  telefone       String
+  atualizadoEm   DateTime
+  criadoEm       DateTime      @default(now())
+  Agendamento    Agendamento[]
+}
+
+model Usuario {
+  id           Int         @id @default(autoincrement())
+  email        String?      
+  senha        String
+  atualizadoEm DateTime
+  criadoEm     DateTime    @default(now())
+  tipo         TipoUsuario?
+  nome         String
+  username String @unique
+}
+
+enum StatusAgendamento {
+  agendado
+  confirmado
+  cancelado
+  realizado
+}
+
+enum TipoUsuario {
+  recepcionista
+  medico
+  admin
+}
