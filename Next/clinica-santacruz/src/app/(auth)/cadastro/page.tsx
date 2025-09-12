@@ -21,7 +21,7 @@ export default async function RegisterPage() {
                     <Form action={RegisterAction}>
                     <div>
                         <Label className="p-2">Nome</Label>
-                        <Input type="text" name="name" placeholder="Seu Nome"/>
+                        <Input type="text" name="nome" placeholder="Seu Nome"/>
                     </div>
                      <div>
                         <Label className="p-2">Usuario</Label>

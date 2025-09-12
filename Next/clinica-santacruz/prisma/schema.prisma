@@ -47,7 +47,6 @@ model Usuario {
   id           Int         @id @default(autoincrement())
   email        String?      
   senha        String
-  atualizadoEm DateTime
   criadoEm     DateTime    @default(now())
   tipo         TipoUsuario?
   nome         String
