@@ -1,13 +1,10 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import Form from 'next/form'
-import RegisterAction from "./registerAction";
+import RegisterForm from "./registerform";
+export default function RegisterPage() {
 
+  
 
-export default async function RegisterPage() {
     return (
         <>
         <div className="flex flex-col items-center justify-center py-40">
@@ -17,30 +14,7 @@ export default async function RegisterPage() {
                     <CardDescription className="text-indigo-900">Faça seu Registro na Clinica Santa Cruz.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                   
-                    <Form action={RegisterAction}>
-                    <div>
-                        <Label className="p-2">Nome</Label>
-                        <Input type="text" name="nome" placeholder="Seu Nome"/>
-                    </div>
-                     <div>
-                        <Label className="p-2">Usuario</Label>
-                        <Input type="text" name="user" placeholder="Seu Usuario"/>
-                    </div>
-                    <div>
-                        <Label className="p-2">Email</Label>
-                        <Input type="email" name="email" placeholder="Digite seu Email" />
-                    </div>
-                    <div>
-                        <Label className="p-2">Senha</Label>
-                        <Input type="password" name="password" placeholder="Digite Sua Senha" />       
-                    </div>
-                    <div>
-                        <Button className="w-full mt-6" type="submit">
-                            Registrar
-                        </Button>
-                    </div>
-                    </Form>
+                <RegisterForm />
                 </CardContent>
             </Card>
              <p className="text-sm text-muted-foreground mt-3">Já possui cadastro? {' '}
