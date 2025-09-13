@@ -1,6 +1,7 @@
 'use server'
 
 import db from "@/lib/db";
+import { hashSync } from "bcrypt-ts";
 import z from "zod";
  
 
@@ -18,10 +19,20 @@ export default async function RegisterAction(formData: FormData){
         throw new Error("Necessario passar Usuario e Senha");
     }
 
+    const user = await db.usuario.findUnique({
+        where:{
+            username: data.user,
+        }
+    });
+
+    if(user) {
+        throw new Error('Usuario já existe');
+    }
+
    await db.usuario.create({
         data: {
             nome: data.nome,
-            senha: data.password,
+            senha: hashSync(data.password),
             username: data.user,
             email: data.email,
         },
