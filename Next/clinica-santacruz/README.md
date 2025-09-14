@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 Sistema de Agendamento Online - Centro Médico Santa Cruz  
 
-## Getting Started
+Este projeto foi desenvolvido para o **Centro Médico Santa Cruz** com o objetivo de otimizar o processo de marcação de consultas de forma **simples, rápida e eficiente**.  
 
-First, run the development server:
+---
+
+## 🚀 Tecnologias Utilizadas  
+- **Node.js** → Back-end robusto e escalável  
+- **Next.js** → Framework React com SSR e ótima performance  
+- **React** → Criação de interfaces dinâmicas e reativas  
+- **Tailwind CSS** → Estilização moderna e responsiva  
+- **Zod** → Validação de dados confiável e segura  
+- **Next-Auth** → Autenticação e gerenciamento de sessão seguro  
+- **Prisma ORM** → Camada de acesso ao banco de dados  
+- **PostgreSQL** (Neon) → Banco de dados relacional hospedado na nuvem  
+
+---
+
+## ⚙️ Funcionalidades  
+- ✔️ Cadastro e autenticação de usuários  
+- ✔️ Marcação de consultas online de forma rápida  
+- ✔️ Validação robusta de dados com **Zod**  
+- ✔️ Painel intuitivo para pacientes e administradores  
+- ✔️ Integração com **Prisma ORM** e banco **PostgreSQL (Neon)**  
+- ✔️ Design moderno e responsivo para qualquer dispositivo  
+
+---
+
+## 📦 Instalação e Execução  
+
+Clone o repositório e instale as dependências:  
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+cd nome-do-repositorio
+npm install
+```
+
+---
+
+## ⚙️ Configuração do Banco de Dados
+
+Crie um arquivo **.env** na raiz do projeto e configure a variável de conexão com o banco **PostgreSQL (Neon):**
+
+```env
+DATABASE_URL="postgresql://usuario:senha@host-do-neon/neondb"
+NEXTAUTH_SECRET="sua_chave_secreta"
+NEXTAUTH_URL="http://localhost:3000"
+```
+### Rodando as migrations do Prisma
+
+```bash
+npx prisma migrate dev
+```
+---
+## Rodando o Projeto
+
+Execute no ambiente de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+O projeto ficará disponível em: 👉 [http://localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ ---
+### 🎯 Objetivo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Oferecer uma experiência fluida tanto para pacientes quanto para administradores, tornando o processo de agendamento médico mais prático, seguro e acessível.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📸 Layout
 
-## Learn More
+A interface foi projetada com Tailwind CSS, garantindo uma navegação intuitiva e compatível com qualquer dispositivo (desktop, tablet e mobile).
 
-To learn more about Next.js, take a look at the following resources:
+### 👨‍💻 Autor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Desenvolvido por **Lucas Brito** como projeto freelancer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
