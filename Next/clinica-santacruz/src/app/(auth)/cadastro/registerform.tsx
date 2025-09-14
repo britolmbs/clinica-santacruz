@@ -26,7 +26,7 @@ export default function RegisterForm(){
                     </div>
                      <div>
                         <Label className="p-2">Usuario</Label>
-                        <Input type="text" name="user" placeholder="Seu Usuario"/>
+                        <Input type="text" name="username" placeholder="Seu Usuario"/>
                     </div>
                     <div>
                         <Label className="p-2">Email</Label>
@@ -34,7 +34,7 @@ export default function RegisterForm(){
                     </div>
                     <div>
                         <Label className="p-2">Senha</Label>
-                        <Input type="password" name="senha" placeholder="Digite Sua Senha" />       
+                        <Input type="password" name="password" placeholder="Digite Sua Senha" />       
                     </div>
                     <div>
                         <Button disabled={isPeding} className="w-full mt-6" type="submit">

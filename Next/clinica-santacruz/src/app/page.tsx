@@ -1,7 +1,7 @@
 import { FeatureCard } from "@/components/FeatureCard";
 import { Button } from "@/components/ui/button";
 import { CalendarClock, Heart, Hospital, SquareActivity, Zap } from "lucide-react";
-import { signIn } from "@/lib/auth";
+import { signIn } from "../lib/auth";
 
 
 export default function Home() {

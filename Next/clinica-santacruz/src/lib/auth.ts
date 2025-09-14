@@ -1,18 +1,19 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import { findUserByCredentials } from "./user";
  
-export const { signIn, signOut, auth } = NextAuth({
-  providers: [
-    Credentials({
-      credentials: {
-        username: { label: "Username" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize({ request }) {
-        const response = await fetch(request)
-        if (!response.ok) return null
-        return (await response.json()) ?? null
-      },
-    }),
-  ],
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [Credentials({
+    credentials: {
+      username: {},
+      password: {}
+    },
+    authorize: async (credentials) => {
+      console.log(credentials);
+     const user = await findUserByCredentials(credentials.username as string, credentials.password as string)
+
+     return user;
+
+    }
+  })],
 })

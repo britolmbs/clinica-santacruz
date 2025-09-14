@@ -8,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Agendamento {
+model agendamento {
   id           Int               @id @default(autoincrement())
   dataHora     DateTime
   pacienteId   Int
@@ -16,51 +16,51 @@ model Agendamento {
   atualizadoEm DateTime
   criadoEm     DateTime          @default(now())
   observacao   String?
-  status       StatusAgendamento @default(agendado)
-  Medico       Medico            @relation(fields: [medicoId], references: [id])
-  Paciente     Paciente          @relation(fields: [pacienteId], references: [id])
+  status       statusAgendamento @default(agendado)
+  medico       medico            @relation(fields: [medicoId], references: [id])
+  paciente     paciente          @relation(fields: [pacienteId], references: [id])
 
   @@index([medicoId, dataHora])
 }
 
-model Medico {
+model medico {
   id            Int           @id @default(autoincrement())
   nome          String
   especialidade String
   telefone      String
   atualizadoEm  DateTime
   criadoEm      DateTime      @default(now())
-  Agendamento   Agendamento[]
+  agendamento   agendamento[]
 }
 
-model Paciente {
+model paciente {
   id             Int           @id @default(autoincrement())
   nome           String
   dataNascimento DateTime
   telefone       String
   atualizadoEm   DateTime
   criadoEm       DateTime      @default(now())
-  Agendamento    Agendamento[]
+  agendamento    agendamento[]
 }
 
-model Usuario {
+model usuario {
   id           Int         @id @default(autoincrement())
   email        String?      
-  senha        String
+  password        String
   criadoEm     DateTime    @default(now())
-  tipo         TipoUsuario?
+  tipo         tipoUsuario?
   nome         String
   username String @unique
 }
 
-enum StatusAgendamento {
+enum statusAgendamento {
   agendado
   confirmado
   cancelado
   realizado
 }
 
-enum TipoUsuario {
+enum tipoUsuario {
   recepcionista
   medico
   admin
