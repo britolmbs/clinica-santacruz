@@ -14,7 +14,7 @@ export default async function RegisterAction(_prevState: any, formData: FormData
     
  
 
-    if(!data.username ||data.email || !data.nome || data.password) {
+    if(!data.username ||!data.email || !data.nome || !data.password) {
        return{
         message: 'Preencha todos os campos',
         success: false,
