@@ -1,6 +1,8 @@
 'use server'
 
-export default function loginAction(formData: FormData) {
+import { signIn } from "@/lib/auth"
 
-    
+export default async function loginAction(formData: FormData) {
+
+    await signIn("credentials", formData);
 }

@@ -3,11 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Form from "next/form";
+import loginAction from "./loginAction";
 
 export default function LoginForm() {
     return (
         <>
-         <Form action={() => {}}>
+         <Form action={loginAction}>
               <div>
                 <Label>Usuario</Label>
                 <Input type="text" name="usuario" placeholder="Digite seu Usuario" />
