@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import LoginForm from "./login-form";
 
 export default async function LoginPage() {
     return(
@@ -14,17 +12,7 @@ export default async function LoginPage() {
             <CardHeader>Faça seu Login com Usuario e Senha.</CardHeader>
         </CardHeader>
         <CardContent>
-            <div>
-                <Label>Usuario</Label>
-                <Input type="text" name="usuario" placeholder="Digite seu Usuario" />
-            </div>
-            <div>
-            <Label>Senha</Label>
-            <Input type="password" name="password" placeholder="Digite Sua Senha" />
-            </div>
-            <div>
-                <Button className="w-full mt-6" type="submit">Login</Button>
-            </div>
+         <LoginForm />
         </CardContent>
         </Card>
         <p className="text-sm text-muted-foreground mt-3">Não Possui cadastro? {' '}
