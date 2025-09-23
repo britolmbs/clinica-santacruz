@@ -9,8 +9,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       password: {}
     },
     authorize: async (credentials) => {
-      console.log(credentials);
-     const user = await findUserByCredentials(credentials.username as string, credentials.password as string)
+     const user = await findUserByCredentials(
+      credentials.username as string,
+       credentials.password as string
+      );
 
      return user;
 

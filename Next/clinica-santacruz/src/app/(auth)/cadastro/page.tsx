@@ -1,9 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import RegisterForm from "./registerform";
-export default function RegisterPage() {
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+export default async function RegisterPage() {
 
-  
+  const session = await auth();
+  if(session){
+    return redirect('/dashboard');
+  }
 
     return (
         <>
