@@ -1,12 +1,14 @@
 'use client'
 
 import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
+import { User } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 
-export default function Navbar() {
+export default function Navbar({userName} : {userName: string}) {
     const pathname = usePathname();
     return(
         <header className="bg-white shadow-sm">
@@ -24,9 +26,33 @@ export default function Navbar() {
                     Agenda do Mes
                 </Button>
                 </Link>
+                <Link href='/dashboard/agendamento'
+                className="text-indigo-700 hover:text-indigo-900"
+                >
+                    <Button variant={'link'}
+                    className={cn(pathname === '/dashboard/agendamento' ? 'underline' : '')}>
+                        Agendamento
+                    </Button>
+                </Link>
+
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <button className="text-gray-700 hover:text-gray-900">
+                            <User size={24} />
+                        </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="mr-4">
+                        <DropdownMenuLabel className="font-light uppercase text-xs">
+                            {userName}
+                        </DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild>
+                            <button>Logout</button>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </nav>
             </div>
-
         </header>
-    )
+    );
 }
